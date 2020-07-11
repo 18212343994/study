@@ -1,5 +1,5 @@
 #该版本支持手机号匹配快递单号，去掉cmd输出内容，客户详细增加地址
-#v1.666666 支持查看今日单量，提高批量查询速度
+#v2.6 支持查看今日单量，提高批量查询速度
 import datetime
 import sys
 from itertools import chain

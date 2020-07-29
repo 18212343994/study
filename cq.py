@@ -122,7 +122,7 @@ def yddcx(messge):
     url = 'https://www.1dadan.com/api/order/list'
     data = {
     'ordersTimeType': 0,
-    'startdate': '2020-6-9 00:00:00',
+    'startdate': datetime.datetime(datetime.datetime.now().year,datetime.datetime.now().month-1,datetime.datetime.now().day),
     'enddate': time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())),
     'shopId': 'all',
     'tradeStatus': 'all',
@@ -150,7 +150,7 @@ def yddcx(messge):
     ifresult1=rj['data']['page']['data']
 
     if ifresult1==[]:
-        a2=messge+'没有查询结果'
+        a2=messge+'最近一个月没有查询结果'
         send(a2)
     else:
         a3=messge+'总单数：'+str(rj['data']['page']['totalRecord'])
@@ -228,7 +228,7 @@ def ydddl():#这个是查询今天有多少单
     rj = r.json()
 
     dl=rj['data']['page']['totalRecord']
-    s='今天截止 '+time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))+'打单数为：'+str(dl)
+    s=time.strftime('%Y-%m-%d',time.localtime(time.time()))+' 打单数为：'+str(dl)+'单'
 
     send(s)
 
